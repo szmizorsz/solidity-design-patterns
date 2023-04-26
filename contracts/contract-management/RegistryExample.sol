@@ -41,5 +41,11 @@ contract UserLogic {
         UserStorage userStorage = UserStorage(registry.getContract(keccak256("UserStorage")));
         return userStorage.getUser(_userAddress);
     }
+
+    function greetUser(address _userAddress) external view returns (string memory) {
+        UserStorage userStorage = UserStorage(registry.getContract(keccak256("UserStorage")));
+        string memory userName = userStorage.getUser(_userAddress);
+        return string(abi.encodePacked("Hello, ", userName, "!"));
+    }
 }
 
