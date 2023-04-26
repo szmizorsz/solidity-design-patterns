@@ -9,6 +9,10 @@ interface IImplementation {
 
 // ImplementationV1 is the first version of the implementation contract
 contract ImplementationV1 is IImplementation {
+    // We need these variables to have the same storage layout as the Proxy contract
+    // They could be avioded with a more sophisticated storage layout, but this is just an example
+    address public delegate;
+    address public owner;
     uint256 public value;
 
     function getValue() external view override returns (uint256) {
@@ -22,6 +26,10 @@ contract ImplementationV1 is IImplementation {
 
 // ImplementationV2 is the second version of the implementation contract with additional logic
 contract ImplementationV2 is IImplementation {
+    // We need these variables to have the same storage layout as the Proxy contract
+    // They could be avioded with a more sophisticated storage layout, but this is just an example
+    address public delegate;
+    address public owner;
     uint256 public value;
 
     function getValue() external view override returns (uint256) {
@@ -47,7 +55,7 @@ contract Proxy {
         delegate = newDelegateAddress;
     }
 
-    fallback() external payable {
+    function _delegateCall() private {
         assembly {
             let _target := sload(0)
             calldatacopy(0x0, 0x0, calldatasize())
@@ -57,7 +65,11 @@ contract Proxy {
         }
     }
 
+    fallback() external payable {
+        _delegateCall();
+    }
+
     receive() external payable {
-        // This function is intentionally left empty, as the contract only receives Ether
+        _delegateCall();
     }
 }
