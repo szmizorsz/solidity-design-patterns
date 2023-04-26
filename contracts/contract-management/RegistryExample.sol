@@ -13,8 +13,6 @@ contract Registry {
     }
 }
 
-pragma solidity ^0.8.18;
-
 contract UserStorage {
     mapping(address => string) private users;
 
@@ -26,8 +24,6 @@ contract UserStorage {
         return users[_userAddress];
     }
 }
-
-pragma solidity ^0.8.18;
 
 contract UserLogic {
     Registry private registry;

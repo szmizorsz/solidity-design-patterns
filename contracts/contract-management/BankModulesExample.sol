@@ -13,16 +13,12 @@ contract BankStorage {
     }
 }
 
-pragma solidity ^0.8.18;
-
 interface IBalanceModule {
     function deposit() external payable;
     function withdraw(uint256 amount) external;
     function getBalance(address user) external view returns (uint256);
     function updateUserBalances(address from, address to, uint256 amount) external;
 }
-
-pragma solidity ^0.8.18;
 
 contract BalanceModule is BankStorage, IBalanceModule {
     function deposit() public payable {
@@ -49,8 +45,6 @@ contract BalanceModule is BankStorage, IBalanceModule {
         _setUserBalance(to, toBalance + amount);
     }
 }
-
-pragma solidity ^0.8.18;
 
 contract LoanModule {
     IBalanceModule public balanceModule;

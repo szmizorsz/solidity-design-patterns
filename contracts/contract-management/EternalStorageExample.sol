@@ -35,8 +35,6 @@ contract EternalStorage is Ownable {
     }
 }
 
-pragma solidity ^0.8.18;
-
 contract LogicContract {
     EternalStorage internal eternalStorage;
 

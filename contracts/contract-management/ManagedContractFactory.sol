@@ -16,8 +16,6 @@ contract ManagedContract {
     }
 }
 
-pragma solidity ^0.8.18;
-
 // The factory contract
 contract ManagedContractFactory {
     event ManagedContractCreated(address indexed managedContractAddress, address indexed owner, uint256 value);

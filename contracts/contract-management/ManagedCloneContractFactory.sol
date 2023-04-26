@@ -18,8 +18,6 @@ contract ManagedCloneContract {
     }
 }
 
-pragma solidity ^0.8.18;
-
 contract ManagedCloneContractFactory {
     event ManagedCloneContractCreated(address indexed managedCloneContractAddress, address indexed owner, uint256 value);
 
