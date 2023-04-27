@@ -44,7 +44,7 @@ describe("SecureBank Test", function () {
     )) as MaliciousContract;
     await maliciousContract.deployed();
 
-    // Attacker deposits 1 ETH into MaliciousContract
+    // Attacker tries to attack SecureBank
     await maliciousContract
       .connect(attacker)
       .attack({ value: ethers.utils.parseEther("1") });
