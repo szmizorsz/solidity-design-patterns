@@ -1,13 +1,14 @@
-# Sample Hardhat Project
+# Solidity Design Patterns
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This project is a collection of design patterns in Solidity.
 
-Try running some of the following tasks:
+Design patterns can be organized into distinct categories, each addressing specific aspects of smart contract design and functionality. These categories include:
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+- Contract Management
+- Security
+- Access Restriction
+- Behavioral
+- Gas Optimization
+
+You can find the articles explaining the patterns here:
+https://medium.com/@szmizorsz/design-patterns-in-solidity-an-introduction-fcfb0834e134
